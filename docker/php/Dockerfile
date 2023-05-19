@@ -3,8 +3,8 @@ FROM php:8.2-fpm-buster
 COPY php.ini /usr/local/etc/php/conf.d/docker-php-config.ini
 
 RUN apt update \
-    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
-    && docker-php-ext-install intl opcache pdo pdo_mysql \
+    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip libpng-dev \
+    && docker-php-ext-install intl opcache pdo pdo_mysql gd \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && docker-php-ext-configure zip \
